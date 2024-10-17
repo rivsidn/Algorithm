@@ -10,7 +10,7 @@ def output_data(size, ffname):
     with open(ffname, "w") as file:
         for i in range(size):
             num = random.randint(1, 1000000000)
-            file.write(str(num) + "\n")
+            file.write(str(num) + ",\n")
 
 # 根据数据大小生成文件名(size_date.data)
 def filename(size):
@@ -26,7 +26,7 @@ def update_time_stamp(dname):
     with open(time_stamp_file, "w") as file:
         file.write(str(time)+"\n")
 
-sizes_tuple = (1,2,3,4,5,6,7,8,9,10, 100, 1000, 10000, 100000, 1000000, 10000000)
+sizes_tuple = (0,1,2,3,4,5,6,7,8,9,10, 100, 1000, 10000, 100000, 1000000, 10000000)
 
 # 将生成的文件存储到data目录中，后缀为.data
 if __name__ == "__main__":
