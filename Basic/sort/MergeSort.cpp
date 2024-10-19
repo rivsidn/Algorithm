@@ -10,7 +10,7 @@ void Merge(int A[],int low,int mid,int high)
 {
 	int *B=new int[high-low+1];
 	int i=low,j=mid+1,k=0;
-	while(i<=mid&&j<=high){
+	while(i<=mid && j<=high){
 		if(A[i]<=A[j])
 			B[k++]=A[i++];
 		else
@@ -28,14 +28,12 @@ void Merge(int A[],int low,int mid,int high)
 
 void MergeSort(int A[],int low,int high)
 {
-	int mid;
-	if (!(low < high))
-		return;
-
-	mid=(low+high)/2;
-	MergeSort(A,low,mid);
-	MergeSort(A,mid+1,high);
-	Merge(A,low,mid,high);
+	if (low < high) {
+		int mid =(low+high)/2;
+		MergeSort(A,low,mid);
+		MergeSort(A,mid+1,high);
+		Merge(A,low,mid,high);
+	}
 }
 
 bool is_sorted(int A[], int array_size)
