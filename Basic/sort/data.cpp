@@ -1,5 +1,6 @@
-#include"data.h"
+#include "data.h"
 
+int array_size = 1;
 int array[] = {
-	342809638,
+	488607807,
 };

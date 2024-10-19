@@ -9,13 +9,14 @@ import datetime
 if __name__ == "__main__":
     try:
         size = int(sys.argv[1])
-    except ValueError, IndexError:
-        print("usage error")
+    except (ValueError,IndexError) as err:
+        print(f"error {err}")
         sys.exit();
 
     with open("data.cpp", "w") as file:
         file.write("#include \"data.h\"\n")
         file.write("\n")
+        file.write(f"int array_size = {size};\n");
         file.write("int array[] = {\n")
 
         for i in range(size):
