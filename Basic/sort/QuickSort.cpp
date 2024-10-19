@@ -5,27 +5,51 @@
 
 /*
  * 快速排序.
- * 《算法训练营(入门篇)》P60
  */
 
+/*《算法训练营(入门篇)》P65 */
+int Partition2(int r[], int low, int high) {
+	int i=low,j=high,pivot=r[low];
+	while(i<j){
+		while(i<j&&r[j]>pivot)
+			j--;
+		while(i<j&&r[i]<=pivot)
+			i++;
+		if(i<j)
+			std::swap(r[i++],r[j--]);
+	}
+	if(r[i]>pivot){
+		std::swap(r[i-1],r[low]);
+		return i-1;
+	}
+	std::swap(r[i],r[low]);
+	return i;
+}
+
+/*《算法训练营(入门篇)》P60 */
 int Partition(int r[],int low,int high){
 	int i=low,j=high,pivot=r[low];
 	while(i < j){
-		while(i < j && r[j] > pivot)
+		while(i < j && pivot < r[j])
 			j--;
-		if(i<j)
-			std::swap(r[i++],r[j]);
+		if(i<j) {
+			std::swap(r[i],r[j]);
+			i++;
+		}
+
 		while(i < j && r[i] <= pivot)
 			i++;
-		if(i<j)
-			std::swap(r[i],r[j--]);
+		if(i<j) {
+			std::swap(r[i],r[j]);
+			j--;
+		}
 	}
 	return i;
 }
 
 void QuickSort(int r[],int low,int high){
 	if(low<high){
-		int mid=Partition(r,low,high);
+		int mid=Partition2(r,low,high);
 #if 0
 		/*
 		 * ERROR1: 为什么这样会出问题？
