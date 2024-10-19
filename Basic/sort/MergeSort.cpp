@@ -5,6 +5,7 @@
 
 /*
  * 归并排序.
+ * 《算法训练营(入门篇)》 P55
  */
 void Merge(int A[],int low,int mid,int high)
 {
